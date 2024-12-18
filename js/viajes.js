@@ -1,79 +1,115 @@
+// Clase Viajes
 class Viajes {
     constructor() {
-        this.latitud = null;
-        this.longitud = null;
-
-        this.obtenerGeolocalizacion();
+        this.latitude = null; // Coordenada de latitud
+        this.longitude = null; // Coordenada de longitud
+        this.errorMessage = null; // Mensaje de error
     }
 
-    // Obtener geolocalización del usuario
-    obtenerGeolocalizacion() {
-        if ("geolocation" in navigator) {
+    // Método para inicializar la geolocalización
+    init() {
+        if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
-                (posicion) => this.mostrarGeolocalizacion(posicion),
-                (error) => this.manejarError(error)
+                (position) => {
+                    this.latitude = position.coords.latitude;
+                    this.longitude = position.coords.longitude;
+                    this.showStaticMap();
+                    this.showDynamicMap();
+                },
+                (error) => {
+                    this.handleGeolocationError(error);
+                }
             );
         } else {
-            alert("La geolocalización no está disponible en este navegador.");
+            this.errorMessage = "La geolocalización no está soportada en este navegador.";
+            this.displayError();
         }
     }
 
-    // Mostrar las coordenadas y los mapas
-    mostrarGeolocalizacion(posicion) {
-        this.latitud = posicion.coords.latitude;
-        this.longitud = posicion.coords.longitude;
-
-        // Mostrar coordenadas
-        document.querySelector("[data-latitud]").textContent = this.latitud;
-        document.querySelector("[data-longitud]").textContent = this.longitud;
-
-        // Mostrar mapa estático
-        const urlMapaEstatico = `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitud},${this.longitud}&zoom=15&size=600x400&markers=${this.latitud},${this.longitud}&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU`;
-        document.querySelector("[data-mapa-estatico]").src = urlMapaEstatico;
-
-        // Mostrar mapa dinámico
-        this.mostrarMapaDinamico();
-    }
-
-    // Mostrar el mapa dinámico (uso permitido de div)
-    mostrarMapaDinamico() {
-        const contenedorMapa = document.querySelector("[data-mapa-dinamico]");
-
-        // Utilizar Google Maps API para el mapa dinámico
-        const mapa = new google.maps.Map(contenedorMapa, {
-            center: { lat: this.latitud, lng: this.longitud },
-            zoom: 15,
-        });
-
-        new google.maps.Marker({
-            position: { lat: this.latitud, lng: this.longitud },
-            map: mapa,
-            title: "Tu ubicación",
-        });
-    }
-
-    // Manejo de errores en geolocalización
-    manejarError(error) {
-        let mensaje = "Error desconocido.";
+    // Manejo de errores de geolocalización
+    handleGeolocationError(error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
-                mensaje = "Permiso denegado para obtener la ubicación.";
+                this.errorMessage = "El usuario denegó la solicitud de geolocalización.";
                 break;
             case error.POSITION_UNAVAILABLE:
-                mensaje = "La información de la ubicación no está disponible.";
+                this.errorMessage = "La información de ubicación no está disponible.";
                 break;
             case error.TIMEOUT:
-                mensaje = "Se agotó el tiempo de espera para obtener la ubicación.";
+                this.errorMessage = "La solicitud para obtener la ubicación expiró.";
                 break;
+            default:
+                this.errorMessage = "Ocurrió un error desconocido.";
         }
-        alert(mensaje);
+        this.displayError();
+    }
+
+    // Método para mostrar un mapa estático con su propio artículo
+    showStaticMap() {
+        const article = this.createArticle();
+        this.addTitle("Mapa Estático", article);
+
+        const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${this.latitude},${this.longitude}&zoom=15&size=600x300&markers=color:red%7C${this.latitude},${this.longitude}&key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU`;
+        const img = document.createElement("img");
+        img.setAttribute("src", mapUrl);
+        img.setAttribute("alt", "Mapa estático mostrando la ubicación actual");
+
+        article.appendChild(img);
+    }
+
+    // Método para mostrar un mapa dinámico con su propio artículo
+    showDynamicMap() {
+        const article = this.createArticle();
+        this.addTitle("Mapa Dinámico", article);
+
+        const script = document.createElement("script");
+        script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyC6j4mF6blrc4kZ54S6vYZ2_FpMY9VzyRU&callback=initDynamicMap";
+        script.async = true;
+        document.head.appendChild(script);
+
+        // Callback para inicializar el mapa dinámico
+        window.initDynamicMap = () => {
+            const mapElement = document.createElement("div");
+            mapElement.setAttribute("style", "width: 100%; height: 400px;"); // Estilos en línea
+            article.appendChild(mapElement);
+
+            new google.maps.Map(mapElement, {
+                center: { lat: this.latitude, lng: this.longitude },
+                zoom: 15,
+            });
+        };
+    }
+
+    // Mostrar mensajes de error en su propio artículo
+    displayError() {
+        const article = this.createArticle();
+        const errorElement = document.createElement("p");
+        errorElement.textContent = this.errorMessage;
+        article.appendChild(errorElement);
+    }
+
+    // Método para crear un nuevo <article> y añadirlo al <main>
+    createArticle() {
+        const main = document.querySelector("main");
+        const article = document.createElement("article");
+        main.appendChild(article);
+        return article;
+    }
+
+    // Método para añadir un título a un artículo específico
+    addTitle(text, article) {
+        const title = document.createElement("h2");
+        title.textContent = text;
+        article.appendChild(title);
     }
 }
 
 
+
 // Comportamiento del carrusel
 document.addEventListener("DOMContentLoaded", () => {
-    new Viajes();
+    const viajes = new Viajes();
+    viajes.init();
     const images = document.querySelectorAll("article img"); // Selecciona todas las imágenes del carrusel
     const nextButton = document.querySelector("button[aria-label='Next']"); // Botón "Next"
     const prevButton = document.querySelector("button[aria-label='Prev']"); // Botón "Prev"
@@ -105,3 +141,4 @@ document.addEventListener("DOMContentLoaded", () => {
     // Inicializa el carrusel mostrando solo la primera imagen
     updateImages();
 });
+
