@@ -1,0 +1,313 @@
+/* Moises Garcia Lopez UO264802*/
+/* Regla con especificidad 1 */
+body {
+    background-color: #F7F9FB;
+    /* Fondo principal */
+    color: #333333;
+    /* Texto principal */
+    font-family: Candara, sans-serif;
+    /* Heredado por todos los elementos */
+    line-height: 1.6;
+    /* Mejora la legibilidad */
+    margin: 1em;
+}
+
+/* Regla con especificidad 1 */
+header {
+    background-color: #E1E8F0;
+    /* Fondo del encabezado */
+    padding: 10px 20px;
+}
+
+header h1 a {
+    text-decoration: none
+}
+
+/* Regla con especificidad 3 */
+header nav a {
+    color: #0056B3;
+    /* Color del texto en navegación */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* Selector combinado: Especificidad 11 */
+header+p {
+    font-size: 0.875rem;
+    /* Tamaño de letra reducido (14px aprox.) */
+    color: #666666;
+    /* Gris para menor énfasis */
+    margin: 0.5em 0;
+    /* Espaciado coherente */
+    font-style: italic;
+}
+
+
+/* Selector de tipo: Especificidad 1 */
+p,
+ul,
+ol,
+dl {
+    font-size: 1rem;
+    /* Tamaño base (16px aprox.) */
+    color: #333333;
+    /* Texto en gris oscuro */
+    line-height: 1.5;
+    /* Mejora la legibilidad */
+}
+
+
+/* Selector de tipo: Especificidad 1 */
+ul,
+ol {
+    margin-left: 1.5em;
+    /* Sangría para listas */
+}
+
+/* Especificidad: 1 */
+ul {
+    list-style-type: circle;
+    /* Cambia la viñeta predeterminada a un círculo */
+    margin-left: 20px;
+    /* Agrega un margen izquierdo para la lista */
+    font-size: 1.1rem;
+    /* Aumenta ligeramente el tamaño de la fuente */
+    color: #333333;
+    /* Color del texto de la lista */
+}
+
+/* Especificidad: 1 */
+ul li {
+    margin-bottom: 8px;
+    /* Espaciado entre elementos de la lista */
+}
+
+
+/* Especificidad: 1 */
+ol {
+    list-style-type: decimal;
+    /* Estilo numérico para la lista ordenada */
+    margin-left: 20px;
+    /* Espaciado a la izquierda */
+    font-size: 1.1rem;
+    /* Aumenta el tamaño de la fuente de la lista ordenada */
+    color: #555;
+    /* Color más claro para los textos de la lista ordenada */
+}
+
+/* Estilo para los elementos de la lista ordenada (li) */
+/* Especificidad: 1 */
+ol li {
+    margin-bottom: 8px;
+
+}
+
+
+
+/* Estilo para los elementos de las listas anidadas (li) */
+/* Especificidad: 003 */
+ol li ul li {
+    font-size: 1rem;
+    /* Tamaño de fuente más pequeño para las listas anidadas */
+    color: #777;
+    /* Color de texto más suave */
+}
+
+dl dt {
+    font-weight: bold;
+    color: #0056B3;
+}
+
+/* Selector de tipo: Especificidad 1 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0.5em 0;
+    /* Espaciado coherente */
+    line-height: 1.2;
+    /* Mejora la legibilidad */
+}
+
+/* Selector de tipo: Especificidad 1 */
+h1 {
+    font-size: 2.5rem;
+    /* Tamaño grande para destacar */
+    font-weight: bold;
+    color: #003366;
+    /* Azul oscuro */
+    text-decoration: none;
+    /* Elimina el subrayado del enlace */
+}
+
+h1 a {
+    text-decoration: none;
+    /* Asegura que el enlace no se subraye */
+    color: inherit;
+    /* Hereda el color del h1 */
+}
+
+/* Selector de tipo: Especificidad 1 */
+h2 {
+    font-size: 2rem;
+    /* Un poco más pequeño que h1 */
+    color: #0056B3;
+    /* Azul más claro */
+}
+
+/* Selector de tipo: Especificidad 1 */
+h3 {
+    font-size: 1.5rem;
+    color: #444444;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 1.2rem;
+    color: #555555;
+    font-style: italic;
+    /* Opcional para diferenciación */
+}
+
+
+/* Regla con especificidad 1  */
+a {
+    color: #FF6F61;
+    /* Color de los enlaces por defecto */
+    text-decoration: underline;
+}
+
+
+/* Estilo para enlaces al pasar el cursor (a:hover) */
+/* Especificidad: 1 */
+a:hover {
+    color: #FF5722;
+    /* Cambio de color al pasar el ratón (rojo anaranjado) */
+    text-decoration: underline;
+    /* Subraya el enlace cuando se pasa el cursor */
+    transform: scale(1.05);
+    /* Ligero aumento del tamaño al pasar el cursor */
+}
+
+/* Estilo para enlaces al hacer clic (a:active) */
+/* Especificidad: 1 */
+a:active {
+    color: #FF0000;
+    /* Color rojo cuando se hace clic en el enlace */
+    transform: scale(0.98);
+    /* Reduce ligeramente el tamaño al hacer clic */
+}
+
+/* Estilo adicional para enlaces externos (por ejemplo, en el documento piloto.html) */
+/* Especificidad: 1 */
+a[target="_blank"] {
+    font-weight: bold;
+    /* Negrita para enlaces externos */
+    color: #FF5722;
+    /* Color personalizado para enlaces externos */
+}
+
+/* Estilo para enlaces externos al pasar el cursor (a[target="_blank"]:hover) */
+/* Especificidad: 1 */
+a[target="_blank"]:hover {
+    color: #FF0000;
+    /* Rojo al pasar el ratón sobre enlaces externos */
+    text-decoration: underline;
+    /* Subrayado al pasar el ratón */
+}
+
+
+/* Regla con especificidad 1  */
+table {
+    background-color: #FFFFFF;
+    /* Fondo blanco para mayor contraste */
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Regla con especificidad 1  */
+th,
+td {
+    border: 1px solid #DDD;
+    /* Bordes grises claros */
+    padding: 8px;
+    text-align: left;
+}
+
+/* Regla con especificidad 1 */
+aside {
+    background-color: #E1E8F0;
+    /* Fondo del aside */
+    color: #333333;
+    /* Texto del aside */
+    padding: 15px;
+    margin: 20px 0;
+    border-left: 4px solid #0056B3;
+    /* Detalle visual */
+}
+
+/* Regla con especificidad 1 (elemento) */
+footer {
+    background-color: #0056B3;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+footer p {
+    color: #FFFFFF;
+    background-color: #0056B3;
+}
+
+/* Estilo para el enlace activo en el menú */
+/* Especificidad: 1 */
+nav a.active {
+    color: #FF5722;
+    /* Cambia el color del texto del enlace activo */
+    font-weight: bold;
+    /* Hace que el texto del enlace activo sea en negrita */
+    text-decoration: underline;
+    /* Subraya el enlace activo */
+}
+
+/* Adaptabilidad para dispositivos móviles - media query */
+/* Especificidad: 1 */
+@media screen and (max-width: 768px) {
+
+    /* Ajustar el encabezado */
+    header {
+        flex-direction: column;
+        /* Apilar los elementos del encabezado verticalmente */
+        align-items: flex-start;
+        /* Alinear los elementos al inicio del contenedor */
+    }
+
+    /* Ocultar las migas de navegación en dispositivos móviles */
+    header+p {
+        display: none;
+        /* Oculta las migas de navegación en pantallas pequeñas */
+    }
+
+    /* Ajuste del tamaño de la fuente para h1 en dispositivos pequeños */
+    header h1 {
+        font-size: 1.5rem;
+        /* Reduce el tamaño del título en pantallas pequeñas */
+    }
+
+    /* Ajuste del menú de navegación */
+    header nav {
+        flex-direction: column;
+        /* Apila los elementos del menú verticalmente */
+        gap: 10px;
+        /* Reduce el espacio entre los elementos */
+    }
+
+
+
+}

@@ -1,0 +1,103 @@
+/* Estilo para el encabezado con Flexbox */
+/* Especificidad: 1 */
+header {
+    display: flex; /* Habilita Flexbox en el encabezado */
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px; 
+}
+
+/* Asegurando que el título h1 y el nav no se solapen */
+header h1 {
+    font-size: 2rem; /* Tamaño de fuente del título */
+    margin: 0;
+}
+
+/* Asegurando que el nav se alinee correctamente */
+header nav {
+    display: flex; /* Habilita Flexbox en el nav */
+    gap: 15px; /* Espacio entre los elementos del menú */
+}
+
+/* Estilo para videos adaptables */
+/* Especificidad: 1 */
+video {
+    width: 100%; /* Hace que el video ocupe el 100% del ancho del contenedor */
+    height: auto; /* Mantiene la relación de aspecto original del video */
+}
+
+/* Estilo para imágenes adaptables */
+/* Especificidad: 1 */
+img {
+    max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
+    height: auto; /* Mantiene la relación de aspecto original de la imagen */
+}
+
+
+
+
+
+/* spacing */
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead th:nth-child(1) {
+    width: 15%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 25%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 15%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 15%;
+  }
+
+  thead th:nth-child(5) {
+    width: 20%;
+  }
+  
+  th,
+  td {
+    padding: 1.25em;
+  }
+  
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 600px) {
+    table {
+        display: block;
+    }
+
+    thead {
+        display: none; /* Oculta el encabezado de la tabla */
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 0.625em;
+    }
+
+    tbody td {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 0.063 solid #ddd;
+        padding: 0.5em;
+    }
+
+    tbody td::before {
+        content: attr(headers); /* Muestra el encabezado como etiqueta */
+        font-weight: bold;
+        margin-right: 0.625em;
+        color: #555;
+    }
+
+}

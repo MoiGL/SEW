@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE circuito SYSTEM "circuito.dtd">
+<circuito>
+    <nombre>Red Bull Ring</nombre>
+    <recorrido>4.318</recorrido>
+    <anchura>12</anchura>
+    <fecha>2024-06-30</fecha>
+    <hora>15:00</hora>
+    <vueltas>71</vueltas>
+    <localidad>Knittelfeld</localidad>
+    <pais>Austria</pais>
+    <referencias>
+        <referencia>https://www.formula1.com</referencia>
+        <referencia>https://en.wikipedia.org/wiki/Red_Bull_Ring</referencia>
+        <referencia>https://www.redbull.com/int-en/redbullring</referencia>
+    </referencias>
+    <galeria>
+        <imagen ruta="xml/redbullring1.jpg" descripcion="Vista aérea del circuito" />
+        <imagen ruta="xml/redbullring2.jpg" descripcion="Curva principal" />
+    </galeria>
+    <videos>
+        <video ruta="xml/redbullring_intro.mp4" descripcion="Introducción al circuito" />
+    </videos>
+    <coordenadas>
+        <latitud>47.22291216871817</latitud>
+        <longitud>14.76366565816884</longitud>
+        <altitud>693.2135356555752</altitud>
+    </coordenadas>
+    <tramos>
+        <!-- Sector 1 -->
+        <tramo distancia="0.650km">
+            <latitud>47.22331629584274</latitud>
+            <longitud>14.77049470309878</longitud>
+            <altitud>677</altitud>
+            <sector>1</sector>
+        </tramo>
+        <tramo distancia="0.800km">
+            <latitud>47.22312640785852</latitud>
+            <longitud>14.76320999924581</longitud>
+            <altitud>685</altitud>
+            <sector>1</sector>
+        </tramo>
+
+        <!-- Sector 2 -->
+        <tramo distancia="1.200km">
+            <latitud>47.22152969067808</latitud>
+            <longitud>14.76054223315221</longitud>
+            <altitud>690</altitud>
+            <sector>2</sector>
+        </tramo>
+        <tramo distancia="0.900km">
+            <latitud>47.22445290129014</latitud>
+            <longitud>14.75783630249441</longitud>
+            <altitud>685</altitud>
+            <sector>2</sector>
+        </tramo>
+
+        <!-- Sector 3 -->
+        <tramo distancia="0.500km">
+            <latitud>47.22397987723435</latitud>
+            <longitud>14.7625476695474</longitud>
+            <altitud>680</altitud>
+            <sector>3</sector>
+        </tramo>
+        <tramo distancia="0.268km">
+            <latitud>47.22558682809839</latitud>
+            <longitud>14.76544320039797</longitud>
+            <altitud>677</altitud>
+            <sector>3</sector>
+        </tramo>
+        <tramo distancia="0.500km">
+            <latitud>47.22641326874752</latitud>
+            <longitud>14.75387254011213</longitud>
+            <altitud>680</altitud>
+            <sector>3</sector>
+        </tramo>
+        <tramo distancia="0.268km">
+            <latitud>47.21932610901113</latitud>
+            <longitud>14.76095280715391</longitud>
+            <altitud>677</altitud>
+            <sector>3</sector>
+        </tramo>
+        <tramo distancia="0.500km">
+            <latitud>47.22102457194058</latitud>
+            <longitud>14.77061054379292</longitud>
+            <altitud>680</altitud>
+            <sector>3</sector>
+        </tramo>
+        <tramo distancia="0.268km">
+            <latitud>47.22331629584274</latitud>
+            <longitud>14.77049470309878</longitud>
+            <altitud>677</altitud>
+            <sector>3</sector>
+        </tramo>
+    </tramos>
+</circuito>

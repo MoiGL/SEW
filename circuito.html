@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Moises Garcia Lopez" />
+    <meta name="description" content="Página principal del sitio web" />
+    <meta name="keywords" content="Formula 1, Velocidad, principal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="icon" href="multimedia/img/favicon.ico" type="image/x-icon">
+    <title>F1 Desktop - Circuito</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/circuito.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html">F1 Desktop</a></h1>
+        <nav>
+            <a href="index.html">Página principal</a>
+            <a href="piloto.html">Piloto</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="calendario.html">Calendario</a>
+            <a href="meteorologia.html">Meteorología</a>
+            <a class="active" href="circuito.html">Circuito</a>
+            <a href="php/viajes.php">Viajes</a>
+            <a href="juegos.html">Juegos</a>
+            <a href="php/f1.php">F1Manager</a>
+        </nav>
+    </header>
+
+    <p>Estás en: <a href="index.html">Inicio</a> >> Circuito</p>
+
+    <section>
+        <h2>Subir Archivo del Circuito</h2>
+        <input type="file" accept=".xml">
+    </section>
+
+    <section>
+        <h2>Información del Circuito</h2>
+        <article></article>
+    </section>
+
+    <section>
+        <h2>Subir Archivo KML del Circuito</h2>
+        <input type="file" accept=".kml">
+    </section>
+    
+    <section>
+        <h2>Mapa del Circuito</h2>
+        <!-- Contenedor del mapa dinámico -->
+        <div style="width: 100%; height: 400px;"></div>
+    </section>
+
+    <section>
+        <h2>Subir Archivo SVG del Circuito</h2>
+        <input type="file" accept=".svg">
+    </section>
+    
+    <section>
+        <h2>Altimetría del Circuito</h2>
+        <figure></figure>
+    </section>
+</body>
+</html>

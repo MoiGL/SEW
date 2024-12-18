@@ -1,0 +1,20 @@
+/* Estilo para el encabezado con Flexbox */
+/* Especificidad: 1 */
+header {
+    display: flex; /* Habilita Flexbox en el encabezado */
+    justify-content: space-between; /* Alinea los elementos a los extremos del contenedor */
+    align-items: center; /* Centra los elementos verticalmente */
+    padding: 10px 20px; /* Espaciado interior */
+}
+
+/* Asegurando que el título h1 y el nav no se solapen */
+header h1 {
+    font-size: 2rem; /* Tamaño de fuente del título */
+    margin: 0;
+}
+
+/* Asegurando que el nav se alinee correctamente */
+header nav {
+    display: flex; /* Habilita Flexbox en el nav */
+    gap: 15px; /* Espacio entre los elementos del menú */
+}

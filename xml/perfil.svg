@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+        <rect width="800" height="400" fill="white"/>
+        <polyline points="127.72463272975743,350.0 223.38571916638196,165.3846153846154 366.8773488213188,50.0 474.49607106252137,165.3846153846154 534.2842500854117,280.7692307692308 566.330714041681,350.0 626.1188930645712,280.7692307692308 658.1653570208405,350.0 717.9535360437308,280.7692307692308 750.0,350.0" fill="none" stroke="blue" stroke-width="2"/>
+        <text x="50" y="25.0" font-size="14" fill="black">Altimetria del Circuito</text>
+        
+        <!-- Ejes -->
+        <line x1="50" y1="350" x2="750" y2="350" stroke="black"/>
+        <line x1="50" y1="50" x2="50" y2="350" stroke="black"/>
+        
+        <!-- Unidades de distancia (km) en el eje X -->
+        <text x="700" y="365" font-size="12" fill="black">Distancia (km)</text>
+        
+        <!-- Unidades de altitud (m) en el eje Y -->
+        <text x="10" y="50" font-size="12" fill="black" transform="rotate(-90 10,50)">Altitud (m)</text>
+    </svg>

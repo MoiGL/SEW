@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Moises Garcia Lopez" />
+    <meta name="description" content="Página principal del sitio web" />
+    <meta name="keywords" content="Formula 1, Velocidad, principal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilo/article_elements.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="icon" href="multimedia/img/favicon.ico" type="image/x-icon">
+    <title>F1 Desktop - meteorologia</title>
+    <script src="js/pais.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1><a href="index.html">F1 Desktop</a></h1>
+        <nav>
+            <a href="index.html">Página principal</a>
+            <a href="piloto.html">Piloto</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="calendario.html">Calendario<a>
+                    <a class="active" href="meteorologia.html">Meterologia</a>
+                    <a href="circuito.html">Circuito</a>
+                    <a href="php/viajes.php">Viajes</a>
+                    <a href="juegos.html">Juegos</a>
+                    <a href="php/f1.php">F1Manager</a>
+        </nav>
+    </header>
+    <p>Estás en: <a href="index.html">Inicio</a> >> Meteorologia</p>
+    <main>
+
+    </main>
+    <script>
+        const pais = new Pais("Austria", "Viena", "8,859,449");
+
+        // Obtener la información
+        const infoPrincipal = pais.getInformacionPrincipal();
+        const infoSecundaria = pais.getInformacionSecundaria();
+
+        // Seleccionar el primer elemento <main> en el documento
+        const mainElemento = document.querySelector('main');
+
+        // Insertar la información en el elemento <main>
+        mainElemento.innerHTML = `<h1>${infoPrincipal}</h1>` + infoSecundaria;
+
+        // Escribir las coordenadas del circuito directamente en el <main>
+        pais.escribirCoordenadas();
+    </script>
+
+</body>
+
+</html>

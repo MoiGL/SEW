@@ -1,0 +1,89 @@
+/* Reset básico */
+
+body {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f3f3;
+}
+
+header h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+main {
+
+    gap: 10px;
+    width: 80vw;
+    max-width: 400px;
+    padding: 10px;
+    border: 2em;
+    background-color: #fff;
+}
+
+section {
+    grid-column: span 4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+
+button {
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 2em;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+p#result {
+    grid-column: span 4;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.light {
+    background-color: #0007; /* Negro translúcido para el fondo del centro */
+    border: 4px solid #000; /* Negro sólido para el borde */
+    border-radius: 50%; /* Para que el círculo sea redondo */
+    aspect-ratio: 1; /* Mantener la proporción 1:1 */
+    box-shadow: 0 0 10px 2px #000; /* Sombra para dar un efecto más realista */
+}
+
+main.load .light:nth-child(1) {
+    background-color: rgba(255, 0, 0, 0.8); /* Rojo translúcido al encender */
+    animation: lightOn 0.5s forwards;
+}
+main.load .light:nth-child(2) {
+    background-color: rgba(255, 0, 0, 0.8); /* Mismo efecto para otras luces */
+    animation: lightOn 0.5s 0.5s forwards;
+}
+main.load .light:nth-child(3) {
+    background-color: rgba(255, 0, 0, 0.8);
+    animation: lightOn 0.5s 1s forwards;
+}
+main.load .light:nth-child(4) {
+    background-color: rgba(255, 0, 0, 0.8);
+    animation: lightOn 0.5s 1.5s forwards;
+}
+
+@keyframes lightOn {
+    to {
+        background-color: rgba(255, 0, 0, 1); /* Rojo completamente opaco al encender */
+        box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.6); /* Efecto de iluminación alrededor */
+    }
+}
+
+@keyframes lightOff {
+    to {
+        background-color: #0007; /* Negro translúcido al apagarse */
+        box-shadow: none; /* Eliminar el efecto de iluminación */
+    }
+}
